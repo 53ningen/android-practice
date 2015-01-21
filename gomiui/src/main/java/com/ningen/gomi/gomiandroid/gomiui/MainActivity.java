@@ -1,12 +1,26 @@
 package com.ningen.gomi.gomiandroid.gomiui;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 
 public class MainActivity extends ActionBarActivity {
+    
+    
+
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+        WebView webView = (WebView)findViewById(R.id.webView1);
+        webView.setWebViewClient(new WebViewClient());
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setVerticalScrollbarOverlay(true);
+        webView.loadUrl("http://www.gochiusa.com/");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,4 +50,5 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    
 }
